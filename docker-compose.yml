@@ -1,0 +1,22 @@
+version: '2'
+services:
+  mongo:
+    restart: unless-stopped
+    image: mongo
+    volumes:
+      - [data directory path]:/data/db
+      - [backup directory path]:/backups
+    command: --smallfiles
+
+  rocketchat-oeru:
+    restart: unless-stopped
+    image: rocketchat/rocket.chat
+    ports:
+      - "127.0.0.1:[port number]:3000" # should be a free port above 1024
+    depends_on:
+      - mongo
+    environment:
+      - MONGO_URL=mongodb://mongo/rocket
+      - ROOT_URL=[domain name (including schema, e.g. http://)]
+    volumes:
+      - [upload directory path]:/var/www/rocket.chat/uploads
