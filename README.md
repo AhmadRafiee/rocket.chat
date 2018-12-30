@@ -33,12 +33,12 @@
 
 
 2. Download and edit compose file:
--
-Download compose file and change domain name, port and directory for persist container data.
+
+    Download compose file and change domain name, port and directory for persist container data.
 
 
 3. Pull docker image and run compose file
--
+
   - pull docker images:
 
     `docker pull mongo`<br/>
@@ -58,7 +58,6 @@ Download compose file and change domain name, port and directory for persist con
 
 
 4. Nginx Configuration for Reverse Proxy:
--
 
 Download nginx config file and edit domain name and proxy_pass port. <br/>
 Install certbot and get certificate for domain name.
